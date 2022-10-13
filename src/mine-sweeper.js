@@ -23,11 +23,46 @@ const { NotImplementedError } = require('../extensions/index.js');
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
+function minesweeper(m) {
+  // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
+
+  for (i = 0; i < m.length; i++) {
+    for (j = 0; j < m.length; j++) {
+      if (m[i][j] === true) m[i][j] = '*';
+      else m[i][j] = 0
+    }
+  }
+
+  for (i = 0; i < m.length; i++) {
+    for (j = 0; j < m[i].length; j++) {
+      if (m[i][j] !== '*') {
+        let count = 0;
+        if (i - 1 >= 0 && i - 1 < m.length && m[i - 1][j] === '*') count++
+        if (i - 1 >= 0 && i - 1 < m.length && j + 1 >= 0 && j + 1 < m[i].length && m[i - 1][j + 1] === '*') count++
+        if (j + 1 >= 0 && j + 1 < m[i].length && m[i][j + 1] === '*') count++
+        if (i + 1 >= 0 && i + 1 < m.length && j + 1 >= 0 && j + 1 < m[i].length && m[i + 1][j + 1] === '*') count++
+        if (i + 1 >= 0 && i + 1 < m.length && m[i + 1][j] === '*') count++
+        if (i + 1 >= 0 && i + 1 < m.length && j - 1 >= 0 && j - 1 < m[i].length && m[i + 1][j - 1] === '*') count++
+        if (j - 1 >= 0 && j - 1 < m[i].length && m[i][j - 1] === '*') count++
+        if (i - 1 >= 0 && i - 1 < m.length && j - 1 >= 0 && j - 1 < m[i].length && m[i - 1][j - 1] === '*') count++
+        m[i][j] = count
+      }
+    }
+  }
+
+  for (i = 0; i < m.length; i++) {
+    for (j = 0; j < m.length; j++) {
+      if (m[i][j] === '*') m[i][j] = 1;
+    }
+  }
+
+  return m
+
 }
 
 module.exports = {
   minesweeper
 };
+
+
