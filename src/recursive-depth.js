@@ -20,10 +20,10 @@ class DepthCalculator {
     if (!Array.isArray(arr)) return 0;
 
     let res = 0;
-    for (let i = 0; i < arr.length; i++) {
-      res = Math.max(res, calculateDepth(arr[i]));
-      return res + 1;
-    }
+    arr.forEach (el => {
+      res = Math.max(res, this.calculateDepth(el));      
+    })
+    return 1 + res
 
   }
 }

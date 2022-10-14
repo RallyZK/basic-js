@@ -26,10 +26,14 @@ function repeater(str, options) {
     str = str.toString()
   }
 
-  if (options.addition || options.addition === false  || options.addition === null) {
-    if (options.addition === null) addition = 'null';
-    else addition = options.addition.toString();
-  }
+  if (options.addition) addition = options.addition
+  else if (options.addition === false) addition = 'false'
+  else if (options.addition === null) addition = 'null'
+
+  // if (options.addition || options.addition === false  || options.addition === null) {
+  //   if (options.addition === null) addition = 'null';
+  //   else addition = options.addition.toString();
+  // }
 
   add = addition
   for (let i = 0; i < options.additionRepeatTimes - 1; i++) {
