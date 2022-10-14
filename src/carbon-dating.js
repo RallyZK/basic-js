@@ -14,28 +14,30 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 
-const MODERN_ACTIVITY = 15;
-const HALF_LIFE_PERIOD = 5730;
+
 
 function dateSample(sampleActivity) {
   // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
 
+  const MODERN_ACTIVITY = 15;
+  const HALF_LIFE_PERIOD = 5730;
+
   if (typeof (sampleActivity) !== 'string' || parseFloat(sampleActivity) < 0 || parseFloat(sampleActivity) > 15) {
     return false
-    //console.log('false1')
+    //console.log('false')
   } else {
     let t = Math.log(MODERN_ACTIVITY / Number(sampleActivity)) / (0.693 / HALF_LIFE_PERIOD)
-  
+
     if (!isFinite(t)) {
       return false
       //console.log('неверный ввод')
-     
-    } else {    
+
+    } else {
       return Math.ceil(t)
-       //console.log(Math.ceil(t))
+      //console.log(Math.ceil(t))
     }
-  
+
   }
 }
 

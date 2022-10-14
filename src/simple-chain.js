@@ -11,10 +11,12 @@ const chainMaker = {
   getLength: function () {
     return this.chain.length;
   },
+  
   addLink: function (value = '') {
     this.chain.push(value);
     return this
   },
+
   removeLink: function (position) {
     if (typeof position !== 'number' || !Number.isInteger(position) || position < 1 || position > this.chain.length) {
       this.chain.length = 0;
@@ -24,10 +26,12 @@ const chainMaker = {
     }
     return this
   },
+
   reverseChain: function () {
     this.chain = this.chain.reverse();
     return this
   },
+
   finishChain: function () {
     let str = `( ${this.chain[0]} )`;
     for (let i = 1; i < this.chain.length; i++) {

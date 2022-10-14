@@ -16,8 +16,8 @@ function getCommonCharacterCount(s1, s2) {
   // remove line with error and write your code here
   let arr1 = s1.split(''), arr2 = s2.split(''), count = 0, length;
 
-  console.log(arr1)
-  console.log(arr2)
+  //console.log(arr1)
+  //console.log(arr2)
 
   arr1.length > arr2.length ? checkarray(arr1, arr2) : checkarray(arr2, arr1);
 
